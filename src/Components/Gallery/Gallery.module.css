@@ -1,0 +1,7 @@
+div{
+    width: 90vw;
+    display: grid;
+  grid-template-columns: repeat(3, 100px);
+  border: 1px solid black;
+
+}

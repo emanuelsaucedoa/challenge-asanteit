@@ -1,11 +1,15 @@
 import React from 'react'
-import { Flex, Box, Image, Text } from '@chakra-ui/react'
+import { Flex, Box, Image, Text, useMediaQuery } from '@chakra-ui/react'
 import acmeFooter from '../../Assets/acme-footer.png'
 import copyright from '../../Assets/copyright.png'
 
 export default function Footer() {
+
+  const [isLargerThan450] = useMediaQuery('(min-width: 450px)')
+
   return (
-    <Flex height='61px' bg='rgba(49, 49, 49, 1)' mt='100px' flexDirection='column'>
+    <Box>
+      {isLargerThan450?<Flex height='61px' bg='rgba(49, 49, 49, 1)' mt='100px' flexDirection='column'>
       <Box width='100%' bg='rgba(194, 63, 129, 1)' height='6px'></Box>
       <Flex justifyContent='center' height='100%' alignItems='center'>
         <Flex>
@@ -15,6 +19,13 @@ export default function Footer() {
         </Flex>
         <Image ml='1rem' mt='0.7rem' src={copyright} alt='copyright' />
       </Flex>
-    </Flex>
+    </Flex>:<Flex height='61px' bg='rgba(49, 49, 49, 1)' mt='75px' flexDirection='column'>
+      <Box width='100%' bg='rgba(194, 63, 129, 1)' height='6px'></Box>
+      <Flex justifyContent='center' height='100%' alignItems='center'>
+        <Image src={copyright} alt='copyright' />
+      </Flex>
+    </Flex>}
+    </Box>
+    
   )
 }
